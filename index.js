@@ -7,6 +7,8 @@ const FileStore = require("session-file-store")(session)
 const flash = require("express-flash")
 const app = express()
 const conn = require("./db/conn")
+const User = require("./models/User")
+const Tought = require("./models/Tought")
 
 //Configurações
 app.set("view engine", "handlebars")
