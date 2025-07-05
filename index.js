@@ -9,6 +9,8 @@ const app = express()
 const conn = require("./db/conn")
 const User = require("./models/User")
 const Tought = require("./models/Tought")
+const toughtsRoutes = require("./routes/toughtsRoutes")
+const ToughtsController = require("./controllers/ToughtsController")
 
 //Configurações
 app.set("view engine", "handlebars")
@@ -18,6 +20,7 @@ app.engine("handlebars", exphbs.engine())
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use("/toughts", toughtsRoutes)
 
 app.use(session({
     name:"session",
@@ -44,6 +47,8 @@ app.use((req,res,next)=>{
     }
     next()
 })
+
+app.get("/", ToughtsController.showToughts)
 
 //Aplicação
 conn.sync()
