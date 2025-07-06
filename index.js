@@ -11,6 +11,8 @@ const User = require("./models/User")
 const Tought = require("./models/Tought")
 const toughtsRoutes = require("./routes/toughtsRoutes")
 const ToughtsController = require("./controllers/ToughtsController")
+const AuthController = require("./controllers/AuthController")
+const authRoutes = require("./routes/authRoutes")
 
 //Configurações
 app.set("view engine", "handlebars")
@@ -21,6 +23,7 @@ app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/thoughts", toughtsRoutes)
+app.use("/", authRoutes)
 
 app.use(session({
     name:"session",
