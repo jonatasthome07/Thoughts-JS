@@ -59,3 +59,69 @@ footer span{
     font-weight: bold;
     color: #F6982d;
 }
+
+.auth-container{
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container h2{
+    margin-bottom: 1em;
+    color: #fff;
+    border-left: 4px solid #F6982d;
+    padding: .3em;
+    width: 100px;
+}
+
+.auth-container a{
+    color: #F6982d;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.auth-container a:hover{
+    color: #fff;
+}
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+
+}
+
+.form-control label{
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.form-control input,
+.form-control textarea {
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #F6982d;
+}
+
+form input[type="submit"],
+.btn{
+    background-color: transparent;
+    color: #F6982d;
+    border: 2px solid #F6982d;
+    padding: .5em 1.2em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 1s;
+}
+
+form input[type="submit"]:hover,
+.btn:hover{
+    background-color: #F6982d;
+    color: #fff;
+}
