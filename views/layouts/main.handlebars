@@ -20,6 +20,11 @@
         </ul>
     </nav>
     <div class="container">
+        {{#if messages.pass}}
+           <div class="message">
+                {{messages.pass}}
+           </div>
+        {{/if}}
         {{{body}}}
     </div>
     <footer>

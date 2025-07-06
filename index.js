@@ -22,8 +22,6 @@ app.engine("handlebars", exphbs.engine())
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use("/thoughts", toughtsRoutes)
-app.use("/", authRoutes)
 
 app.use(session({
     name:"session",
@@ -44,6 +42,8 @@ app.use(session({
 }))
 
 app.use(flash())
+app.use("/thoughts", toughtsRoutes)
+app.use("/", authRoutes)
 app.use((req,res,next)=>{
     if(req.session.userid){
         res.locals.session = req.session
