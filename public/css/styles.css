@@ -48,11 +48,15 @@
 }
 
 footer{
-    height: 150px;
+    height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 1px solid #F6982d;
+}
+
+footer p{
+    margin-top: 40px;
 }
 
 footer span{
