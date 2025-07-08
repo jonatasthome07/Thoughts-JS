@@ -8,7 +8,7 @@ module.exports = class ToughtsController{
 
     static async dashboard(req,res){
         const userId = req.session.userid
-        const user = await User.findOne({where:{id:userId}, include: Tought, plain:true})
+        const user = await User.findOne({where:{id:userId}, include: Tought})
         if(!user){
             res.redirect("/login")
         }
