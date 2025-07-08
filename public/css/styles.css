@@ -140,3 +140,25 @@ form input[type="submit"]:hover,
     background-color: #F6982d;
     color: #fff;
 }
+
+.toughts-form-container a{
+    color: #F6982d;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.toughts-form-container a:hover{
+    color: white;
+}
+
+.toughts-form-container h1{
+    margin: 15px 0;
+    color: #fff;
+    border-left: 4px solid #F6982d;
+    padding: .3em;
+}
+
+.toughts-form-container form{
+   max-width: 30%;
+   margin-top: 1.5em;
+}
