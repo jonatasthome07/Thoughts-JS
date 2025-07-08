@@ -106,6 +106,12 @@ footer span{
     justify-content: space-between;
 }
 
+.dashboard a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #F6982d;
+}
+
 .message{
     padding: 1em;
     color: #004085;
