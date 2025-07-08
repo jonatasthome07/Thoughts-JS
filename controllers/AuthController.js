@@ -8,8 +8,8 @@ module.exports = class AuthController{
 
     static async loginPost(req,res){
         const {email, password} = req.body
-        const user =  await User.findOne({where:{email:email}})
-
+        const user =  await User.findOne({raw:true,where:{email:email}})
+        
         if(!user){
             req.flash("msg", "Usuário não encontrado. Tente novamente!")
             res.render("auth/login")
@@ -28,12 +28,12 @@ module.exports = class AuthController{
            req.flash("msg", "Login efetuado com sucesso!")
            req.session.save(()=>{
                 res.redirect("/")
+                console.log(user)
            })
         } 
         catch (error) {
             console.log(error)
         }
-
     }
     
     static register(req,res){

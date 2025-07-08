@@ -42,7 +42,7 @@ app.use(session({
 }))
 
 app.use(flash())
-app.use("/thoughts", toughtsRoutes)
+app.use("/toughts", toughtsRoutes)
 app.use("/", authRoutes)
 app.use((req,res,next)=>{
     if(req.session.userid){
