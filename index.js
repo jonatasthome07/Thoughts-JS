@@ -42,15 +42,16 @@ app.use(session({
     }
 }))
 
-app.use(flash())
-app.use("/toughts", toughtsRoutes)
-app.use("/", authRoutes)
 app.use((req,res,next)=>{
     if(req.session.userid){
         res.locals.session = req.session
     }
     next()
 })
+app.use(flash())
+app.use("/toughts", toughtsRoutes)
+app.use("/", authRoutes)
+
 
 app.get("/",checkAuth,ToughtsController.showToughts)
 
