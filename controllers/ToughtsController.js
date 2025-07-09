@@ -58,4 +58,10 @@ module.exports = class ToughtsController{
             console.log(error)
         }
     }
+
+    static async updateTought(req,res){
+        const id = req.params.id
+        const tought = await Tought.findOne({raw:true ,where:{id:id}})
+        res.render("toughts/edit", {tought})
+    }
 }
