@@ -13,7 +13,7 @@ const toughtsRoutes = require("./routes/toughtsRoutes")
 const ToughtsController = require("./controllers/ToughtsController")
 const AuthController = require("./controllers/AuthController")
 const authRoutes = require("./routes/authRoutes")
-const checkAuth = require("./helpers/auth").checkAuth
+
 
 //Configurações
 app.set("view engine", "handlebars")
@@ -53,7 +53,7 @@ app.use("/toughts", toughtsRoutes)
 app.use("/", authRoutes)
 
 
-app.get("/",checkAuth,ToughtsController.showToughts)
+app.get("/", ToughtsController.showToughts)
 
 //Aplicação
 conn.sync()
