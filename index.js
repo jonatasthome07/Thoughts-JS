@@ -13,7 +13,7 @@ const toughtsRoutes = require("./routes/toughtsRoutes")
 const ToughtsController = require("./controllers/ToughtsController")
 const AuthController = require("./controllers/AuthController")
 const authRoutes = require("./routes/authRoutes")
-
+const checkAuth = require("./helpers/auth").checkAuth
 
 //Configurações
 app.set("view engine", "handlebars")
@@ -36,8 +36,7 @@ app.use(session({
     }),
     cookie:{
         secure:false,
-        maxAge: 360000,
-        expires: new Date(Date.now() + 360000),
+        maxAge: 1000 * 60 * 60 * 1,
         httpOnly: true
     }
 }))
@@ -48,12 +47,11 @@ app.use((req,res,next)=>{
     }
     next()
 })
+app.get("/",checkAuth,ToughtsController.showToughts)
+
 app.use(flash())
 app.use("/toughts", toughtsRoutes)
 app.use("/", authRoutes)
-
-
-app.get("/", ToughtsController.showToughts)
 
 //Aplicação
 conn.sync()
