@@ -20,6 +20,7 @@ module.exports = class ToughtsController{
     }
 
     const toughtsData = await Tought.findAll({include: User, where:{title: {[Op.like]: `%${search}%`}}, order:[["createdAt", order]]})
+    // percorre cada item do array e retorna um novo array onde cada item é um objeto JS puro
     const toughts = toughtsData.map((result)=> result.get({plain:true}))
     let toughtsQty = toughts.length
 
