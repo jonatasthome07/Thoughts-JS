@@ -40,5 +40,3 @@ nodemon.json
 
 # Coverage de testes (caso adicione futuramente)
 coverage/
-
-screenshots/
