@@ -1,7 +1,7 @@
 const f = require("session-file-store")
 const Tought = require ("../models/Tought")
 const User = require("../models/User")
-const {Op} = require("sequelize")
+const {Op, ConnectionTimedOutError, or} = require("sequelize")
 
 module.exports = class ToughtsController{
     static async showToughts(req,res){
@@ -10,7 +10,16 @@ module.exports = class ToughtsController{
         search = req.query.search
     }
 
-    const toughtsData = await Tought.findAll({include: User, where:{title: {[Op.like]: `%${search}%`}}})
+    let order = "DESC"
+
+    if(req.query.order === "old"){
+        order = "ASC"
+    }
+    else{
+        order = "DESC"
+    }
+
+    const toughtsData = await Tought.findAll({include: User, where:{title: {[Op.like]: `%${search}%`}}, order:[["createdAt", order]]})
     const toughts = toughtsData.map((result)=> result.get({plain:true}))
     let toughtsQty = toughts.length
 
